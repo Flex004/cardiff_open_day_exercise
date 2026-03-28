@@ -1,4 +1,4 @@
-(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const o of t.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&n(o)}).observe(document,{childList:!0,subtree:!0});function i(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function n(e){if(e.ep)return;e.ep=!0;const t=i(e);fetch(e.href,t)}})();const d="/CUOpenDayTest/vite.svg",c="/CUOpenDayTest/tailwindcss-mark.svg",f="/CUOpenDayTest/typescript.svg",a="/CUOpenDayTest/cu-logo.svg";async function m(){return await(await fetch("/CUOpenDayTest/api/OpenDay.json")).json()}function l(s){const r=document.querySelector("#app");if(!s.topics){r.innerHTML='<p class="text-red-600">No Open Day data found.</p>';return}const i=document.getElementById("topicFilter")?.value,n=i&&i!=="all"?s.topics.filter(e=>e.name===i):s.topics;r.innerHTML=`
+(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))a(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const o of t.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&a(o)}).observe(document,{childList:!0,subtree:!0});function i(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function a(e){if(e.ep)return;e.ep=!0;const t=i(e);fetch(e.href,t)}})();const d="/cardiff-open-day-exercise/vite.svg",c="/cardiff-open-day-exercise/tailwindcss-mark.svg",f="/cardiff-open-day-exercise/typescript.svg",n="/cardiff-open-day-exercise/cu-logo.svg";async function m(){return await(await fetch("/cardiff-open-day-exercise/api/OpenDay.json")).json()}function l(r){const s=document.querySelector("#app");if(!r.topics){s.innerHTML='<p class="text-red-600">No Open Day data found.</p>';return}const i=document.getElementById("topicFilter")?.value,a=i&&i!=="all"?r.topics.filter(e=>e.name===i):r.topics;s.innerHTML=`
   <a 
     href="#page-title" 
     class="absolute left-0 top-0 m-2 p-2 bg-white text-cardiff-red border border-cardiff-red rounded shadow focus:translate-y-0 -translate-y-20 focus:outline-none transition"
@@ -24,7 +24,7 @@
     <main class="min-h-screen bg-gray-50 font-sans px-4 py-8">
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
         <a href="https://www.cardiff.ac.uk/" target="_blank" rel="noopener noreferrer">
-          <img src="${a}" alt="Cardiff University Logo" class="h-16 w-auto" />
+          <img src="${n}" alt="Cardiff University Logo" class="h-16 w-auto" />
         </a>
       </div>
       <div class="w-full bg-cardiff-red py-10">
@@ -45,7 +45,7 @@
             class="p-3 border border-gray-300 rounded-lg shadow-md bg-white text-gray-800 focus:ring-2 focus:ring-cardiff-red focus:border-cardiff-red transition"
           >
             <option value="all">All Subjects</option>
-            ${s.topics.map(e=>`
+            ${r.topics.map(e=>`
               <option value="${e.name}" ${i===e.name?"selected":""}>
                 ${e.name}
               </option>
@@ -55,7 +55,7 @@
       </div>
 
       <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start">
-        ${n.map(e=>e&&e.name?`
+        ${a.map(e=>e&&e.name?`
           <div 
               class="bg-white rounded-xl shadow-md hover:shadow-xl hover:scale-[1.02] transition p-6 flex flex-col cursor-pointer"
               onclick="toggleEvents(${e.id})"
@@ -66,7 +66,7 @@
               onkeydown="if(event.key === 'Enter') toggleEvents(${e.id})"
             >
             <img 
-              src="${e.cover_image??a}" 
+              src="${e.cover_image??n}" 
               alt="${e.name} cover image" 
               class="h-40 w-full object-cover rounded-lg mb-4 bg-gray-200" 
             />
@@ -94,4 +94,4 @@
         `:"").join("")}
       </div>
     </div>
-  `,document.getElementById("topicFilter")?.addEventListener("change",()=>{l(s)})}m().then(l);window.toggleEvents=s=>{document.querySelectorAll('[id^="events-"]').forEach(i=>{i.id!==`events-${s}`&&i.classList.add("hidden")});const r=document.getElementById(`events-${s}`);r&&r.classList.toggle("hidden")};
+  `,document.getElementById("topicFilter")?.addEventListener("change",()=>{l(r)})}m().then(l);window.toggleEvents=r=>{document.querySelectorAll('[id^="events-"]').forEach(i=>{i.id!==`events-${r}`&&i.classList.add("hidden")});const s=document.getElementById(`events-${r}`);s&&s.classList.toggle("hidden")};
