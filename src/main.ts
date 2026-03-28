@@ -80,7 +80,9 @@ function renderOpenDay(data: any) {
           </select>
         </div>
       </div>
-
+       <div class="text-center text-gray-700 mb-4">
+        Showing ${filteredTopics.length} of ${data.topics.length} subjects
+      </div>
       <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start">
         ${filteredTopics.map((topic: any) => topic && topic.name ? `
           <div 
